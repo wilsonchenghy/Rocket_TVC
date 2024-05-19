@@ -67,7 +67,7 @@ void loop() {
 double PID(double setPoint, double currentPoint, unsigned long timeChange, double *pastError, double *integralError) {
   double error = setPoint - currentPoint;
   double deriviativeError = (error - *pastError) / timeChange;
-  *integralError += error * timeChange;
+  *integralError += error;
 
   double outputAngle = Kp * error + Ki * *integralError + Kd * deriviativeError;
 
